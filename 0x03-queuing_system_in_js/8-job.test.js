@@ -1,5 +1,3 @@
-// File: 8-job.js
-
 import kue from 'kue';
 
 /**
@@ -17,7 +15,6 @@ export default function createPushNotificationsJobs(jobs, queue) {
     const job = queue.create('push_notification_code_3', jobData)
       .save((err) => {
         if (!err) {
-          // Log only if `job.id` exists (in normal mode, not in test mode)
           if (job.id !== undefined) {
             console.log(`Notification job created: ${job.id}`);
           }
